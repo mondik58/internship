@@ -1,10 +1,6 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Internship Boilerplate
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `yarn start`
 
@@ -29,42 +25,99 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Folder Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You need to follow this folder structure based on [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Here components are divided according to Atomic Design principles but also divided by features which adds extra scalability:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+📦src
+ ┣ 📂components // Components that can be used in any feature
+ ┃ ┣ 📂atoms
+ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┣ 📂molecules
+ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┣ 📂organisms
+ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┗ 📂templates
+ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┗ 📜styles.js
+ ┣ 📂constants // Files with various constants
+ ┃ ┗ 📜api.js
+ ┣ 📂features // Features (for example: Auth, Projects etc)
+ ┃ ┗ 📂MyFeature
+ ┃ ┃ ┣ 📂atoms
+ ┃ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┃ ┣ 📂molecules
+ ┃ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┃ ┣ 📂organisms
+ ┃ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┃ ┣ 📂pages
+ ┃ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┃ ┗ 📜styles.js
+ ┃ ┃ ┗ 📂templates
+ ┃ ┃ ┃ ┗ 📂MyComponent
+ ┃ ┃ ┃ ┃ ┣ 📂__tests__
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜MyComponent.test.js
+ ┃ ┃ ┃ ┃ ┣ 📜MyComponent.js
+ ┃ ┃ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┃ ┃ ┗ 📜styles.js
+ ┣ 📂mutations // GraphQL mutations divided by features
+ ┃ ┗ 📂MyFeature
+ ┃ ┃ ┗ 📜myMutation.js
+ ┣ 📂queries // GraphQL queries divided by features
+ ┃ ┗ 📂MyFeature
+ ┃ ┃ ┗ 📜myQuery.js
+ ┣ 📂utils // Various small functions (for example: date formatting utils)
+ ┃ ┣ 📂__tests__
+ ┃ ┃ ┗ 📜myUtil.test.js
+ ┃ ┗ 📜myUtil.js
+ ┣ 📜index.js
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## API
+GraphQL API is hosted at [https://powerful-ridge-97119.herokuapp.com/graphql](https://powerful-ridge-97119.herokuapp.com/graphql)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It is self documented and the easiest way to introspect it is to use GraphQL client application. \
+For example you can use [Altair](https://altair.sirmuel.design/).
