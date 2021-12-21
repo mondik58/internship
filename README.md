@@ -121,3 +121,10 @@ GraphQL API is hosted at [https://powerful-ridge-97119.herokuapp.com/graphql](ht
 
 It is self documented and the easiest way to introspect it is to use GraphQL client application. \
 For example you can use [Altair](https://altair.sirmuel.design/).
+
+### Docker
+You are able to clone [repository]() with API to your local machine and run it with `docker-compose` like this:
+```bash
+docker-compose -f docker-compose.development.yml up
+```
+
