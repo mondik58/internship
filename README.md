@@ -123,7 +123,7 @@ It is self documented and the easiest way to introspect it is to use GraphQL cli
 For example you can use [Altair](https://altair.sirmuel.design/).
 
 ### Docker
-You are able to clone the [repository](https://github.com/VladWithCookies/kaifbreaker-api) with API to your local machine and run it with `docker-compose` like this:
+You are able to clone [the repository](https://github.com/VladWithCookies/kaifbreaker-api) with API to your local machine and run it with `docker-compose` like this:
 ```bash
 docker-compose -f docker-compose.development.yml up
 ```
