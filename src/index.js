@@ -10,7 +10,7 @@ const client = createClient({ url: API_URL });
 ReactDOM.render(
   <React.StrictMode>
     <Provider value={client}>
-      Hello there!
+      Hello
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
