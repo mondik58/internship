@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createClient, Provider } from 'urql';
+import Meintemplate from './components/templates/MainTemplate/MeinTemplate';
 
 import { API_URL } from './constants/api';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +11,9 @@ const client = createClient({ url: API_URL });
 ReactDOM.render(
   <React.StrictMode>
     <Provider value={client}>
-      Hello there!
+      <Meintemplate>
+        
+      </Meintemplate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
