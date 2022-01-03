@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createClient, Provider } from 'urql';
+import Signup from './components/organisms/SIgnUp/SIgnUp';
 import Meintemplate from './components/templates/MainTemplate/MeinTemplate';
 
 import { API_URL } from './constants/api';
@@ -12,7 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider value={client}>
       <Meintemplate>
-        
+        <Signup />
       </Meintemplate>
     </Provider>
   </React.StrictMode>,

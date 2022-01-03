@@ -6,7 +6,7 @@ const Meintemplate = ({children}) => {
   return (
     <>
     <Header />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ height: '100%' }}>
         {children}
       </Container>
     </>
