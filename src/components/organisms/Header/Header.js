@@ -1,17 +1,25 @@
 import { AppBar, Box, Toolbar, Button } from '@mui/material';
-import React from 'react';
+import { Link } from 'react-router-dom';
 import HeaderTypo from '../../atoms/Typography/header';
 
 const Header = () => {
 
-  const onClick = () => console.log('clicked')
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position='static'>
         <Toolbar>
           <HeaderTypo variant="h6" component="div" sx={{flexGrow: 1}}>ToDoList</HeaderTypo>
-          <Button onClick={onClick} color="inherit" key="sign-up">SIGN UP</Button>
-          <Button onClick={onClick} color="inherit" key="log-in">LOG IN</Button>
+          <Button color="inherit" key="sign-up">
+            <Link to="/sign-up">
+              SIGN UP
+            </Link>
+          </Button>
+          
+          <Button color="inherit" key="log-in">
+          <Link to="/login">
+              LOG IN
+          </Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
