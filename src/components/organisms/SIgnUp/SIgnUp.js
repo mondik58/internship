@@ -36,7 +36,7 @@ const FORM_VALIDATION = Yup.object().shape({
   password: Yup.string()
     .required('Password is required')
     .min(6, 'Your password must be longer than 6 characters.')
-    .matches(regExpPass, "Invalid password")
+    .matches(regExpPass, "Password must contain at least 8 characters, one uppercase, one number and one special case character")
 })
 
 const Signup = () => {
@@ -86,6 +86,7 @@ const Signup = () => {
                   <TextfieldWrapper 
                         name="password"
                         label="Password"
+                        type="password"
                         />
                 </Grid>
                 <Grid sx={{width: '100%', marginTop: '30px'}} item xs={12}>
