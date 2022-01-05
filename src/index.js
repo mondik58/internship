@@ -16,7 +16,7 @@ import './styles/normalize.scss';
 
 
 const client = createClient({ url: API_URL });
-const {HOME, LOGIN, SIGN_UP} = ROUTES;
+const { HOME, LOGIN, SIGN_UP } = ROUTES;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,9 +25,9 @@ ReactDOM.render(
         <Maintemplate>
           
           <Routes>
-            <Route path={HOME} element={<Home />}/>
-            <Route path={SIGN_UP} element={<SignUp />}/>
-            <Route path={LOGIN} element={<Login />}/>
+            <Route path={ HOME } element={ <Home /> }/>
+            <Route path={ SIGN_UP } element={ <SignUp /> }/>
+            <Route path={ LOGIN } element={ <Login /> }/>
           </Routes>
         </Maintemplate>
       </Provider>

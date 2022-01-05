@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 
 const AuthContext = React.createContext();
 
@@ -7,7 +7,7 @@ export function useAuth() {
 }
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const value = '';
   return (
     <AuthContext.Provider value={value}>
