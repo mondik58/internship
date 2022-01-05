@@ -1,16 +1,13 @@
 import { TextField } from '@mui/material';
 import { useField } from 'formik';
 
-const TextfieldWrapper = ({
-  name,
-  ...otherProps
-}) => {
+const Input = ({ name, ...props }) => {
 
   const [field, meta] = useField(name);
 
   const configTextfield = {
     ...field,
-    ...otherProps,
+    ...props,
     fullWidth: true,
     variant: "standard"
   }
@@ -19,9 +16,10 @@ const TextfieldWrapper = ({
     configTextfield.error = true;
     configTextfield.helperText = meta.error;
   }
+
   return (
-    <TextField {...configTextfield}/>
+    <TextField { ...configTextfield }/>
   );
 }
 
-export default TextfieldWrapper;
+export default Input;

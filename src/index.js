@@ -1,33 +1,36 @@
-import './normalize.scss';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { createClient, Provider } from 'urql';
-import Signup from './components/organisms/SIgnUp/SIgnUp';
-import Meintemplate from './components/templates/MainTemplate/MeinTemplate';
-import {Routes, Route} from 'react-router-dom';
-
-import { API_URL } from './constants/api';
+import { API_URL, ROUTES } from './constants/api';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import Home from './components/templates/Home/Home';
-import Login from './components/templates/LogIn/Login';
+
+import Maintemplate from './components/templates/MainTemplate';
+import SignUp from './features/SignUp';
+import Home from './components/templates/Home';
+import Login from './components/templates/LogIn';
+
+import './styles/normalize.scss';
+
 
 const client = createClient({ url: API_URL });
+const {HOME, LOGIN, SIGN_UP} = ROUTES;
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Provider value={client}>
-      <Meintemplate>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/sign-up" element={<Signup />}/>
-          <Route path="/login" element={<Login/>}/>
-        </Routes>
-      </Meintemplate>
-    </Provider>
+      <Provider value={client}>
+        <Maintemplate>
+          
+          <Routes>
+            <Route path={HOME} element={<Home />}/>
+            <Route path={SIGN_UP} element={<SignUp />}/>
+            <Route path={LOGIN} element={<Login />}/>
+          </Routes>
+        </Maintemplate>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
