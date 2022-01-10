@@ -11,11 +11,11 @@ const Header = () => {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>ToDoList</Typography>
-          <Button color="inherit">
-            <Link to={ SIGN_UP }>SIGN UP</Link>
+          <Button color="inherit" component={Link} to={ SIGN_UP }>
+            SIGN UP
           </Button>
-          <Button color="inherit">
-            <Link to={ LOGIN }>LOG IN</Link>
+          <Button color="inherit" component={Link} to={ LOGIN }>
+            LOG IN
           </Button>
         </Toolbar>
       </AppBar>

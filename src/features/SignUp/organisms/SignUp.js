@@ -17,51 +17,55 @@ const SignUp = () => (
   <Grid container>
     <Container maxWidth="xs">
       <Formik
-      initialValues={{ ...INITIAL_VALUES }}
-      validationSchema={ VALIDATION_SCHEMA }
-      onSubmit={(values, { resetForm }) => {
-        console.log(values)
-        resetForm(INITIAL_VALUES)
-      }}>
-        <Form>
-          <Grid container 
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-                sx={{ marginTop: "100px" }}>
+        initialValues={ INITIAL_VALUES }
+        validationSchema={ VALIDATION_SCHEMA }
+        onSubmit={(values, { resetForm }) => {
+          console.log(values)
+          resetForm(INITIAL_VALUES)
+        }}
+      >
+        { () => (
+          <Form>
+            <Grid 
+              container 
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
+              sx={{ marginTop: "100px" }}
+            >
             <Grid sx={{ width: "100%" }} item xs={12}>
               <Input 
                 name="firstName"
                 label="First Name"
                 />
             </Grid>
-          <Grid sx={{ width: "100%" }} item md={12}>
-          <Input 
+            <Grid sx={{ width: "100%" }} item md={12}>
+              <Input 
                 name="lastName"
                 label="Last Name"
-                />
-          </Grid>
-            <Grid sx={{ width: "100%" }} item xs={12}>
-              <Input 
+              />
+            </Grid>
+              <Grid sx={{ width: "100%" }} item xs={12}>
+                <Input 
                   name="email"
                   label="Email"
-                  />
+                />
+              </Grid>
+              <Grid sx={{ width: "100%" }} item xs={12}>
+                <Input 
+                  name="password"
+                  label="Password"
+                  type="password"
+                />
+              </Grid>
+              <Grid sx={{ width: "100%", marginTop: "30px" }} item xs={12}>
+                <SubmitButton>SIGN UP</SubmitButton>
+              </Grid>
             </Grid>
-            <Grid sx={{ width: "100%" }} item xs={12}>
-              <Input 
-                    name="password"
-                    label="Password"
-                    type="password"
-                    />
-            </Grid>
-            <Grid sx={{ width: "100%", marginTop: "30px" }} item xs={12}>
-              <SubmitButton>
-                SIGN UP
-              </SubmitButton>
-            </Grid>
-          </Grid>
-        </Form>
+          </Form>
+          )
+        }
       </Formik>
     </Container>
   </Grid>
