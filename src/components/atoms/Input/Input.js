@@ -1,24 +1,23 @@
 import { TextField } from '@mui/material';
 import { useField } from 'formik';
 
-const Input = ({ name, ...props }) => {
+const Input = (props) => {
 
-  const [field, meta] = useField(name);
-
-  const configTextfield = {
-    ...field,
-    ...props,
-    fullWidth: true,
-    variant: "standard"
-  }
-
-  if (meta && meta.touched && meta.error) {
-    configTextfield.error = true;
-    configTextfield.helperText = meta.error;
-  }
+  const [field, meta] = useField(props);
+  const helperError = meta.error && meta.touched && meta.error;
 
   return (
-    <TextField { ...configTextfield }/>
+    <>
+      <TextField 
+        {...field}
+        {...props} 
+        fullWidth 
+        variant='standard'
+        helperText={helperError}
+        error={helperError ? true : false}
+      />
+      
+    </>
   );
 }
 

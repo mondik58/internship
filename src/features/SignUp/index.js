@@ -1,3 +1,1 @@
-import SignUp from "./organisms/SignUp";
-
-export default SignUp;
+export { default } from './organisms/SignUp';

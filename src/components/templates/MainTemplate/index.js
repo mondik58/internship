@@ -1,3 +1,1 @@
-import Maintemplate from "./MainTemplate";
-
-export default Maintemplate;
+export { default } from './MainTemplate';

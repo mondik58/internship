@@ -1,15 +1,15 @@
 import { Container } from '@mui/material';
-import Header from '../../organisms/Header';
+import Header from 'components/organisms/Header';
 
-const Maintemplate = ({ children }) => {
+const MainTemplate = ({children}) => {
   return (
     <>
       <Header />
-      <Container maxWidth="lg" sx={{ height: '100%' }}>
-        { children }
+      <Container maxWidth="lg" sx={{height: '100%'}}>
+        {children}
       </Container>
     </>
   );
 }
 
-export default Maintemplate;
+export default MainTemplate;
