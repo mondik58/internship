@@ -6,7 +6,6 @@ import { useMutation } from 'urql';
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
-
 import { ROUTES } from 'constants/api';
 import { CREATE_USER_MUTATION } from 'mutations/CreateUser/createUser';
 import { VALIDATION_SCHEMA } from 'constants/schema';
