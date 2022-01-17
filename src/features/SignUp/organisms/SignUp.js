@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import { ROUTES } from 'constants/api';
-import { CREATE_USER } from 'mutations/SignUp/createUser';
+import { CREATE_USER } from 'mutations/SignUp/signUp';
 import { VALIDATION_SCHEMA } from 'constants/schema';
 
 const INITIAL_VALUES = {
@@ -24,9 +24,9 @@ const SignUp = () => {
   const {fetching, error, } = result;
 
   const onSubmit = async (values, setSubmitting) => {
-      const result = await createUser(values);
-      setSubmitting(false);
-      if (!result.error) navigate(LOGIN);
+    const result = await createUser(values);
+    setSubmitting(false);
+    if (!result.error) navigate(LOGIN);
   }
   
   return (
