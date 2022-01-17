@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from 'constants/api';
 
 const Header = () => {
-
   const {LOGIN, SIGN_UP} = ROUTES;
 
   return (

@@ -1,4 +1,4 @@
-import { Grid, Container, CircularProgress } from '@mui/material';
+import { Grid, Container, Alert } from '@mui/material';
 import { Formik, Form} from 'formik';
 import { useNavigate } from "react-router-dom";
 import { useMutation } from 'urql';
@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import { ROUTES } from 'constants/api';
-import { CREATE_USER_MUTATION } from 'mutations/CreateUser/createUser';
+import { CREATE_USER } from 'mutations/SignUp/createUser';
 import { VALIDATION_SCHEMA } from 'constants/schema';
 
 const INITIAL_VALUES = {
@@ -18,22 +18,15 @@ const INITIAL_VALUES = {
 }
 
 const SignUp = () => {
-
   const navigate = useNavigate();
   const {LOGIN} = ROUTES;
-  const [result, createUser] = useMutation(CREATE_USER_MUTATION);
-  const {fetching} = result;
-  const spinner = (<CircularProgress color="success" size={25} thickness={5}/>);
+  const [result, createUser] = useMutation(CREATE_USER);
+  const {fetching, error, } = result;
 
-  const onSubmit = async (values) => {
-    try {
-      await createUser(values);
-      navigate(LOGIN);
-    } catch (error) {
-      console.log(error);
-    }
-    
-
+  const onSubmit = async (values, setSubmitting) => {
+      const result = await createUser(values);
+      setSubmitting(false);
+      if (!result.error) navigate(LOGIN);
   }
   
   return (
@@ -43,8 +36,7 @@ const SignUp = () => {
           initialValues={INITIAL_VALUES}
           validationSchema={VALIDATION_SCHEMA}
           onSubmit={(values, { setSubmitting }) => {
-            onSubmit(values);
-            setSubmitting(false)
+            onSubmit(values, setSubmitting);
           }}
         >
           {() => (
@@ -83,8 +75,13 @@ const SignUp = () => {
                   />
                 </Grid>
                 <Grid sx={{width: "100%", marginTop: "30px"}} item xs={12}>
-                  <SubmitButton>{fetching ? spinner : 'SIGN UP'}</SubmitButton>
+                  <SubmitButton loading={fetching}>SIGN UP</SubmitButton>
                 </Grid>
+                {error && 
+                  <Grid sx={{width: "100%", marginTop: "30px"}} item xs={12}>
+                    <Alert severity="error">{error.message}</Alert>
+                  </Grid>
+                }
               </Grid>
             </Form>
           )}

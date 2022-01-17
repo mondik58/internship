@@ -8,11 +8,10 @@ import reportWebVitals from './reportWebVitals';
 
 import MainTemplate from 'components/templates/MainTemplate';
 import SignUp from 'features/SignUp';
-import Home from 'components/pages/Home';
-import LogIn from 'components/pages/LogIn';
+import Home from 'features/Home';
+import LogIn from 'features/LogIn';
 
 import 'styles/normalize.scss';
-
 
 const client = createClient({ url: API_URL });
 const { HOME, LOGIN, SIGN_UP } = ROUTES;
@@ -22,7 +21,6 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider value={client}>
         <MainTemplate>
-          
           <Routes>
             <Route path={HOME} element={<Home />}/>
             <Route path={SIGN_UP} element={<SignUp />}/>

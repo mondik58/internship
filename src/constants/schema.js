@@ -13,4 +13,4 @@ export const VALIDATION_SCHEMA = Yup.object().shape({
     .required('Password is required')
     .min(PASSWORD_LONGER, 'Your password must be longer than 6 characters.')
     .matches(PASSWORD_VALIDATION, 'Password must contain at least 6 characters, one uppercase, one number and one special case character')
-})
+});
