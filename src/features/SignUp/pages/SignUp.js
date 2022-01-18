@@ -1,14 +1,14 @@
-import { Grid, Container, Alert } from '@mui/material';
-import { Formik, Form} from 'formik';
-import { useNavigate } from "react-router-dom";
-import { useMutation } from 'urql';
+import {Grid, Container, Alert} from '@mui/material';
+import {Formik, Form} from 'formik';
+import {useNavigate} from "react-router-dom";
+import {useMutation} from 'urql';
 
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
-import { ROUTES } from 'constants/api';
-import { CREATE_USER } from 'mutations/SignUp/signUp';
-import { VALIDATION_SCHEMA } from 'constants/schema';
+import {ROUTES} from 'constants/api';
+import {CREATE_USER} from 'mutations/SignUp/signUp';
+import {SIGNUP_SCHEMA} from './schema';
 
 const INITIAL_VALUES = {
   lastName: '',
@@ -21,23 +21,20 @@ const SignUp = () => {
   const navigate = useNavigate();
   const {LOGIN} = ROUTES;
   const [result, createUser] = useMutation(CREATE_USER);
-  const {fetching, error, } = result;
+  const {fetching, error} = result;
 
-  const onSubmit = async (values, setSubmitting) => {
+  const onSubmit = async (values, {setSubmitting}) => {
     const result = await createUser(values);
     setSubmitting(false);
     if (!result.error) navigate(LOGIN);
   }
-  
   return (
     <Grid container>
       <Container maxWidth="xs">
         <Formik
           initialValues={INITIAL_VALUES}
-          validationSchema={VALIDATION_SCHEMA}
-          onSubmit={(values, { setSubmitting }) => {
-            onSubmit(values, setSubmitting);
-          }}
+          validationSchema={SIGNUP_SCHEMA}
+          onSubmit={onSubmit}
         >
           {() => (
             <Form>

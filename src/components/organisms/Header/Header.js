@@ -1,10 +1,9 @@
-import { AppBar, Box, Toolbar, Button, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { ROUTES } from 'constants/api';
+import {AppBar, Box, Toolbar, Button, Typography} from '@mui/material';
+import {Link} from 'react-router-dom';
+import {ROUTES} from 'constants/api';
 
 const Header = () => {
   const {LOGIN, SIGN_UP} = ROUTES;
-
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position='static'>

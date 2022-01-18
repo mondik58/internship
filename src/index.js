@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import { createClient, Provider } from 'urql';
-import { API_URL, ROUTES } from 'constants/api';
+import {createClient, Provider} from 'urql';
+import {API_URL, ROUTES} from 'constants/api';
 import reportWebVitals from './reportWebVitals';
 
 import MainTemplate from 'components/templates/MainTemplate';
-import SignUp from 'features/SignUp';
-import Home from 'features/Home';
-import LogIn from 'features/LogIn';
+import SignUp from 'features/SignUp/pages/SignUp';
+import Home from 'features/Home/pages/Home';
+import LogIn from 'features/LogIn/pages/LogIn';
 
 import 'styles/normalize.scss';
 
-const client = createClient({ url: API_URL });
-const { HOME, LOGIN, SIGN_UP } = ROUTES;
+const client = createClient({url: API_URL});
+const {HOME, LOGIN, SIGN_UP} = ROUTES;
 
 ReactDOM.render(
   <React.StrictMode>
