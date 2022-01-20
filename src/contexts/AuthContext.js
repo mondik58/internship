@@ -6,7 +6,6 @@ export function useAuth() {
   return useContext(AuthContext)
 }
 
-
 const AuthProvider = ({children}) => {
   const value = '';
   return (
@@ -17,4 +16,3 @@ const AuthProvider = ({children}) => {
 }
 
 export default AuthProvider;
-

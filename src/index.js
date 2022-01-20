@@ -1,20 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createClient, Provider } from 'urql';
-import Meintemplate from './components/templates/MainTemplate/MeinTemplate';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {createClient, Provider} from 'urql';
 
-import { API_URL } from './constants/api';
+import {API_URL, ROUTES} from 'constants/api';
 import reportWebVitals from './reportWebVitals';
 
-const client = createClient({ url: API_URL });
+import MainTemplate from 'components/templates/MainTemplate';
+import SignUp from 'features/Auth/pages/SignUp';
+import Home from 'features/ToDo/pages/Home';
+import LogIn from 'features/Auth/pages/LogIn';
+
+import 'styles/normalize.scss';
+
+const client = createClient({url: API_URL});
+const {HOME, LOGIN, SIGN_UP} = ROUTES;
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider value={client}>
-      <Meintemplate>
-        
-      </Meintemplate>
-    </Provider>
+    <BrowserRouter>
+      <Provider value={client}>
+        <MainTemplate>
+          <Routes>
+            <Route path={HOME} element={<Home />}/>
+            <Route path={SIGN_UP} element={<SignUp />}/>
+            <Route path={LOGIN} element={<LogIn />}/>
+          </Routes>
+        </MainTemplate>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

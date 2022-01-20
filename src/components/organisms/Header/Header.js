@@ -1,18 +1,20 @@
-import { AppBar, Box, Toolbar } from '@mui/material';
-import React from 'react';
-import HeaderTypo from '../../atoms/Typography/header';
-import ButtonMui from '../../atoms/Button/Button';
+import {AppBar, Box, Toolbar, Button, Typography} from '@mui/material';
+import {Link} from 'react-router-dom';
+import {ROUTES} from 'constants/api';
 
 const Header = () => {
-
-  const onClick = () => console.log('clicked')
+  const {LOGIN, SIGN_UP} = ROUTES;
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position='static'>
         <Toolbar>
-          <HeaderTypo variant="h6" component="div" sx={{flexGrow: 1}}>ToDoList</HeaderTypo>
-          <ButtonMui onClick={onClick} color="inherit" key="sign-up">SIGN UP</ButtonMui>
-          <ButtonMui onClick={onClick} color="inherit" key="log-in">LOG IN</ButtonMui>
+          <Typography variant="h6" component='div' sx={{flexGrow: 1}}>ToDoList</Typography>
+          <Button color="inherit" component={Link} to={SIGN_UP}>
+            SIGN UP
+          </Button>
+          <Button color='inherit' component={Link} to={LOGIN}>
+            LOG IN
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
