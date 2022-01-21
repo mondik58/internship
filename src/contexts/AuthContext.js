@@ -1,18 +1,16 @@
-import React, {useContext} from "react";
+import React, {useState} from 'react';
 
-const AuthContext = React.createContext();
-
-export function useAuth() {
-  return useContext(AuthContext)
-}
+export const AuthContext = React.createContext();
 
 const AuthProvider = ({children}) => {
-  const value = '';
+  const [isLoggedIn, toggleLoginStatus] = useState(false);
+
+  const toggleLogin = () => toggleLoginStatus(!isLoggedIn);
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={toggleLogin, isLoggedIn}>
       {children}
     </AuthContext.Provider>
-  );
-}
+  )
+};
 
 export default AuthProvider;

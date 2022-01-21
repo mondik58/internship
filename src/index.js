@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {createClient, Provider} from 'urql';
 
 import {API_URL, ROUTES} from 'constants/api';
+import {getToken} from './utils/cookies';
 import reportWebVitals from './reportWebVitals';
 
 import MainTemplate from 'components/templates/MainTemplate';
@@ -13,7 +14,13 @@ import LogIn from 'features/Auth/pages/LogIn';
 
 import 'styles/normalize.scss';
 
-const client = createClient({url: API_URL});
+const client = createClient({
+  url: API_URL,
+  fetchOptions: () => {
+    const token = getToken();
+    return token ? {headers: { Authorization: `Bearer ${token}` }} : {};
+  }
+});
 const {HOME, LOGIN, SIGN_UP} = ROUTES;
 
 ReactDOM.render(
