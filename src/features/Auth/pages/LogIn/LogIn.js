@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {ROUTES} from 'constants/api';
-import {LOGIN_USER} from 'mutations/LogIn/logIn';
+import {LOGIN} from 'mutations/LogIn/logIn';
 import {LOGIN_SCHEMA} from './schema';
 import {setToken} from 'utils/cookies';
 
@@ -19,14 +19,14 @@ const INITIAL_VALUES = {
 const LogIn = () => {
   const navigate = useNavigate();
   const {HOME} = ROUTES;
-  const [data, signInUser] = useMutation(LOGIN_USER);
+  const [data, signInUser] = useMutation(LOGIN);
   const {fetching, error} = data;
 
   const onSubmit = async (values, {setSubmitting}) => {
     const data = await signInUser(values);
     const token = data.data.signInUser.token;
 
-    if (data.data.signInUser) setToken(token);
+    if (token) setToken(token);
     setSubmitting(false);
     if (!data.error) navigate(HOME);
   }
