@@ -1,11 +1,12 @@
 import {AppBar, Box, Toolbar, Button, Typography} from '@mui/material';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {ROUTES} from 'constants/api';
-import {getToken} from 'utils/cookies';
+import {getToken, deleteToken} from 'utils/cookies';
 
 const Header = () => {
   const {LOGIN, SIGN_UP} = ROUTES;
   const token = getToken();
+  const navigate = useNavigate();
   const buttonsRender = (
     <>
       <Button color="inherit" component={Link} to={SIGN_UP}>
@@ -16,14 +17,19 @@ const Header = () => {
       </Button>
     </>
   );
+
+  const onClick = () => {
+    deleteToken();
+    navigate(LOGIN);
+  }
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position='static'>
         <Toolbar>
-          <Typography variant="h6" component='div' sx={{flexGrow: 1}}>ToDoList</Typography>
+          <Typography variant="h6" component='div' sx={{flexGrow: 1}}>ToDo List</Typography>
           {token 
             ?
-              <Button color="inherit">
+              <Button onClick={onClick} color="inherit">
                 LOG OUT
               </Button>
             : 
