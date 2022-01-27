@@ -8,7 +8,6 @@ import {makeOperation} from '@urql/core';
 import {API_URL, ROUTES} from 'constants/api';
 import {getToken, deleteToken} from 'utils/cookies';
 import PrivateRoute from 'components/atoms/PrivateRoute';
-
 import MainTemplate from 'components/templates/MainTemplate';
 import SignUp from 'features/Auth/pages/SignUp';
 import Home from 'features/ToDo/pages/Home';
@@ -41,7 +40,7 @@ const App = () => {
             return null;
           },
           addAuthToOperation: ({ authState, operation }) => {
-            if (!authState || !authState.token) {
+            if (!authState || !authState?.token) {
               return operation;
             }
           
@@ -66,15 +65,13 @@ const App = () => {
               e => e.response.status === 401
             );
           },
-          willAuthError: ({authState}) => {
-            if (!authState) return true;
-            return false
-          }
+          willAuthError: ({authState}) => !authState
         }),
         fetchExchange,
       ],
     })
   }, [token]);
+  
   return (
     <Provider value={client}>
       <MainTemplate>

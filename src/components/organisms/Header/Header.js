@@ -7,21 +7,12 @@ const Header = () => {
   const {LOGIN, SIGN_UP} = ROUTES;
   const token = getToken();
   const navigate = useNavigate();
-  const buttonsRender = (
-    <>
-      <Button color="inherit" component={Link} to={SIGN_UP}>
-        SIGN UP
-      </Button> 
-      <Button color='inherit' component={Link} to={LOGIN}>
-        LOG IN
-      </Button>
-    </>
-  );
 
   const onClick = () => {
     deleteToken();
     navigate(LOGIN);
   }
+
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position='static'>
@@ -33,7 +24,14 @@ const Header = () => {
                 LOG OUT
               </Button>
             : 
-              buttonsRender
+              <>
+                <Button color="inherit" component={Link} to={SIGN_UP}>
+                  SIGN UP
+                </Button> 
+                <Button color='inherit' component={Link} to={LOGIN}>
+                  LOG IN
+                </Button>
+              </>
           }
         </Toolbar>
       </AppBar>
