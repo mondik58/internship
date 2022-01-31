@@ -61,11 +61,13 @@ const App = () => {
             });
           },
           didAuthError: ({error}) => {
-            return error.graphQLErrors.some(
-              e => e.response.status === 401
-            );
+            if (error) {
+              return error.message
+            }
+            return null
           },
-          willAuthError: ({authState}) => !authState
+          willAuthError: ({authState}) => {console.log(authState) 
+            return !authState}
         }),
         fetchExchange,
       ],
