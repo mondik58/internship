@@ -66,8 +66,7 @@ const App = () => {
             }
             return null
           },
-          willAuthError: ({authState}) => {console.log(authState) 
-            return !authState}
+          willAuthError: ({authState}) => !authState
         }),
         fetchExchange,
       ],
