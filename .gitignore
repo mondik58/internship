@@ -29,8 +29,11 @@ docker-compose.yml
 
 /config/spring.rb
 
+/coverage
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
 .env
 .DS_Store
+

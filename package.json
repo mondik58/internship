@@ -32,6 +32,13 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "coverageReporters": ["html"],
+    "collectCoverageFrom": [
+      "src/*/**/*.js",
+      "!**/node_modules/**"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,6 +53,7 @@
   },
   "devDependencies": {
     "jest-watch-typeahead": "^0.6.5",
+    "msw": "^0.36.7",
     "sass": "^1.45.2",
     "sass-loader": "^12.4.0",
     "webpack": "^5.65.0"
