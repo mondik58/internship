@@ -12,19 +12,17 @@ describe('SignUp', () => {
   const render = () => renderComponent(<SignUp />);
   const navigate = jest.fn();
 
-  describe('navigate to login', () => {  
-    it('when valid data redirect to login page', async () => {
+  describe('when valid data', () => {  
+    it('redirect to login page', async () => {
       useNavigate.mockReturnValue(navigate);
       render();
       
-      userEvent.type(screen.getByLabelText(/first name/i), 'test');
-      userEvent.type(screen.getByLabelText(/last name/i), 'test');
-      userEvent.type(screen.getByLabelText(/email/i), 'mondik58@gmail.com');
-      userEvent.type(screen.getByLabelText(/password/i), 'As123!');
+      userEvent.type(screen.getByTestId('firstName'), 'test');
+      userEvent.type(screen.getByTestId('lastName'), 'test');
+      userEvent.type(screen.getByTestId('email'), 'mondik58@gmail.com');
+      userEvent.type(screen.getByTestId('password'), 'As123!');
 
       userEvent.click(screen.getByTestId('submit'));
-
-      expect(screen.getByRole('button')).not.toBeDisabled()
 
       await waitFor(() => {
         expect(navigate).toBeCalledTimes(1);
@@ -36,15 +34,15 @@ describe('SignUp', () => {
     });
   })
 
-  describe('fail request', () => {
-    it('when request is failed', async () => {
+  describe('with invalid data', () => {
+    it('renders correct errors', async () => {
       server.use(signUpError);
       render();
 
-      userEvent.type(screen.getByLabelText(/first name/i), 'test');
-      userEvent.type(screen.getByLabelText(/last name/i), 'test');
-      userEvent.type(screen.getByLabelText(/email/i), 'mondik58@gmail.com');
-      userEvent.type(screen.getByLabelText(/password/i), 'As123!');
+      userEvent.type(screen.getByTestId('firstName'), 'test');
+      userEvent.type(screen.getByTestId('lastName'), 'test');
+      userEvent.type(screen.getByTestId('email'), 'mondik58@gmail.com');
+      userEvent.type(screen.getByTestId('password'), 'As123!');
 
       userEvent.click(screen.getByTestId('submit'));
 
@@ -54,14 +52,14 @@ describe('SignUp', () => {
     });
   });
 
-  describe('submit with empty inputs', () => {
-    it('when empty inputs', async () => {
+  describe('with empty fields', () => {
+    it('renders correct errors', async () => {
       render();
 
-      userEvent.type(screen.getByLabelText(/first name/i), '');
-      userEvent.type(screen.getByLabelText(/last name/i), '');
-      userEvent.type(screen.getByLabelText(/email/i), '');
-      userEvent.type(screen.getByLabelText(/password/i), '');
+      userEvent.type(screen.getByTestId('firstName'), '');
+      userEvent.type(screen.getByTestId('lastName'), '');
+      userEvent.type(screen.getByTestId('email'), '');
+      userEvent.type(screen.getByTestId('password'), '');
 
       userEvent.click(screen.getByTestId('submit'));
 
@@ -84,10 +82,10 @@ describe('SignUp', () => {
   });
 
   describe('with invalid email', () => {
-    it('when invalid email', async () => {
+    it('renders correct errors', async () => {
       render();
 
-      userEvent.type(screen.getByLabelText(/email/i), 'gmail');
+      userEvent.type(screen.getByTestId('email'), 'gmail');
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
@@ -97,10 +95,10 @@ describe('SignUp', () => {
   });
 
   describe('with invalid password', () => {
-    it('when password less then 6 characters', async () => {
+    it('renders correct errors', async () => {
       render();
 
-      userEvent.type(screen.getByLabelText(/password/i), 'p111');
+      userEvent.type(screen.getByTestId('password'), 'p111');
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
@@ -108,10 +106,10 @@ describe('SignUp', () => {
       })
     });
 
-    it('when password incorrect', async () => {
+    it('shows correct errors', async () => {
       render();
 
-      userEvent.type(screen.getByLabelText(/password/i), 'ass123!');
+      userEvent.type(screen.getByTestId('password'), 'ass123!');
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
