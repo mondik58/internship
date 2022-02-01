@@ -61,10 +61,9 @@ const App = () => {
             });
           },
           didAuthError: ({error}) => {
-            if (error) {
-              return error.message
-            }
-            return null
+            return error.graphQLErrors.some(
+              e => e.response.status === 401
+            );
           },
           willAuthError: ({authState}) => !authState
         }),
