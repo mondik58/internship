@@ -12,8 +12,8 @@ describe('SignUp', () => {
   const render = () => renderComponent(<SignUp />);
   const navigate = jest.fn();
 
-  describe('when valid data', () => {  
-    it('redirect to login page', async () => {
+  describe('with valid data', () => {  
+    it('redirects to login page', async () => {
       useNavigate.mockReturnValue(navigate);
       render();
       
@@ -95,26 +95,30 @@ describe('SignUp', () => {
   });
 
   describe('with invalid password', () => {
-    it('renders correct errors', async () => {
-      render();
-
-      userEvent.type(screen.getByTestId('password'), 'p111');
-      userEvent.click(screen.getByTestId('submit'));
-
-      await waitFor(() => {
-        expect(screen.getByText('Your password must be longer than 6 characters.')).toBeInTheDocument()
-      })
+    describe('when password is too short', () => {
+      it('renders correct errors', async () => {
+        render();
+  
+        userEvent.type(screen.getByTestId('password'), 'p111');
+        userEvent.click(screen.getByTestId('submit'));
+  
+        await waitFor(() => {
+          expect(screen.getByText('Your password must be longer than 6 characters.')).toBeInTheDocument()
+        })
+      });
     });
-
-    it('shows correct errors', async () => {
-      render();
-
-      userEvent.type(screen.getByTestId('password'), 'ass123!');
-      userEvent.click(screen.getByTestId('submit'));
-
-      await waitFor(() => {
-        expect(screen.getByText('Password must contain at least 6 characters, one uppercase, one number and one special case character')).toBeInTheDocument()
-      })
+    
+    describe('when password is not strong', () => {
+      it('renders correct errors', async () => {
+        render();
+  
+        userEvent.type(screen.getByTestId('password'), 'ass123!');
+        userEvent.click(screen.getByTestId('submit'));
+  
+        await waitFor(() => {
+          expect(screen.getByText('Password must contain at least 6 characters, one uppercase, one number and one special case character')).toBeInTheDocument()
+        })
+      });
     });
   });
 });
