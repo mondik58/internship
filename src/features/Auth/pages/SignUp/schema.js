@@ -4,11 +4,11 @@ import {MIN_PASSWORD_LENGTH} from 'constants/auth';
 
 export const SIGNUP_SCHEMA = Yup.object().shape({
   firstName: Yup.string()
-    .required('Required'),
+    .required('First name is required'),
   lastName: Yup.string()
-    .required('Required'),
+    .required('Last name is required'),
   email: Yup.string()
-    .required('Required')
+    .required('Email is required')
     .matches(EMAIL_REGEX, 'Invalid email, example@gmail.com'),
   password: Yup.string()
     .required('Password is required')

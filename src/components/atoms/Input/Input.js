@@ -12,6 +12,9 @@ const Input = (props) => {
       variant='standard'
       helperText={helperText}
       error={Boolean(helperText)}
+      inputProps={{
+        'data-testid': field.name
+      }}
     />
   );
 }

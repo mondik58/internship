@@ -7,6 +7,8 @@ const SubmitButton = ({children, loading}) => {
       color='primary'
       fullWidth
       type='submit'
+      disabled={loading}
+      data-testid="submit"
     >
       {loading ? <CircularProgress color="success" size={25} thickness={5}/> : children}
     </Button>
