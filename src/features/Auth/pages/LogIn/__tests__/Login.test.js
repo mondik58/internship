@@ -10,7 +10,6 @@ import renderComponent from 'utils/tests/renderComponent';
 import {ROUTES} from 'constants/api';
 import Login from '..';
 
-
 describe('Login', () => {
   const render = () => renderComponent(<Login />);
   jest.mock('js-cookie', ()=> jest.fn());
