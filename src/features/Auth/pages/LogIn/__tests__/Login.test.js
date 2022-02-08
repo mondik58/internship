@@ -10,26 +10,25 @@ import renderComponent from 'utils/tests/renderComponent';
 import {ROUTES} from 'constants/api';
 import Login from '..';
 
+jest.mock('utils/cookies', () => ({
+  setToken: jest.fn()
+}));
+
 describe('Login', () => {
   const render = () => renderComponent(<Login />);
-  jest.mock('js-cookie', ()=> jest.fn());
   const navigate = jest.fn();
 
-  describe('when login', () => {
+  describe('when user is logging in', () => {
     it('redirects to home page', async () => {
-      const mockSet = jest.fn();
-      Cookies.set= mockSet;
-      setToken('value');
       useNavigate.mockReturnValue(navigate);
       render();
 
       userEvent.type(screen.getByTestId('email'), 'mondik58@gmail.com');
       userEvent.type(screen.getByTestId('password'), 'As123!');
-
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
-        expect(mockSet).toBeCalled();
+        expect(setToken).toBeCalledTimes(1);
       });
 
       await waitFor(() => {
@@ -46,11 +45,8 @@ describe('Login', () => {
     it('renders correct errors', async () => {
       render();
 
-      userEvent.type(screen.getByTestId('email'), '');
-      userEvent.type(screen.getByTestId('password'), '');
-
       userEvent.click(screen.getByTestId('submit'));
-
+      
       await waitFor(() => {
         expect(screen.getByText('Required')).toBeInTheDocument();
       })
@@ -61,14 +57,13 @@ describe('Login', () => {
     });
   });
 
-  describe('with invalid data', () => {
+  describe('with invalid credentials', () => {
     it('renders correct errors', async () => {
       server.use(signInError);
       render();
 
       userEvent.type(screen.getByTestId('email'), 'mondik58@gmail.com');
       userEvent.type(screen.getByTestId('password'), 'As123!');
-
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
