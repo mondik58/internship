@@ -60,11 +60,7 @@ const App = () => {
               },
             });
           },
-          didAuthError: ({error}) => {
-            return error.graphQLErrors.some(
-              e => e.response.status === 401
-            );
-          },
+          didAuthError: ({error}) => error.response.status === 401,
           willAuthError: ({authState}) => !authState
         }),
         fetchExchange,
