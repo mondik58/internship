@@ -28,26 +28,26 @@ const INITIAL_VALUES = {
 const ToDoModal = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const handleClickOpen = () => setOpen(true);
-  const handleClickClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [result, createProject] = useMutation(CREATE_LIST);
   const {fetching, error} = result;
   
   const onSubmit = async (values, {setSubmitting}) => {
     const result = await createProject(values);
     setSubmitting(false);
-    if (!result.error) handleClickClose();
+    if (!result.error) handleClose();
   }
 
   return (
     <>
       <SpeedDial 
-        onClick={handleClickOpen} 
+        onClick={handleOpen} 
         ariaLabel="SpeedDial example"
         icon={<SpeedDialIcon />}
         sx={{position: 'absolute', bottom: 10, right: 10}}
       />
-      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClickClose} aria-labelledby="customized-dialog-title">
+      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose} aria-labelledby="customized-dialog-title">
         <DialogContent dividers>
           <Container maxWidth="lg">
             <Formik
@@ -55,7 +55,7 @@ const ToDoModal = () => {
               validationSchema={PROJECT_SCHEMA}
               onSubmit={onSubmit}
             >
-              {(props) => (
+              {props => (
                 <Form>
                   <Grid 
                     container 
@@ -78,7 +78,7 @@ const ToDoModal = () => {
                       <Grid className={classes.item}>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                           <DateTimePicker
-                            TextFieldComponent={(props) => (<Input name="deadline" {...props} />) }
+                            TextFieldComponent={props => (<Input name="deadline" {...props} />) }
                             onChange={value => props.setFieldValue("deadline", value)}
                             label="Deadline"
                             value={props.values.deadline}
@@ -93,7 +93,7 @@ const ToDoModal = () => {
                           direction="row" 
                         >
                           <Grid item>
-                            <Button fullWidth variant="outlined" onClick={handleClickClose}>NO, THANKS</Button>
+                            <Button fullWidth variant="outlined" onClick={handleClose}>NO, THANKS</Button>
                           </Grid>
                           <Grid item>
                             <SubmitButton variant="outlined" loading={fetching}>CREATE LIST</SubmitButton>
