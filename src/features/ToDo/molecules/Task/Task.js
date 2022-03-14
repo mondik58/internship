@@ -2,8 +2,8 @@ import {ListItem, ListItemIcon, ListItemText, Checkbox, IconButton, ListItemSeco
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from '@material-ui/core/styles';
 import {useMutation} from 'urql';
-import {UPDATE_TASK} from 'mutations/UpdateTask/updateTask';
-import {DELETE_TASK} from 'mutations/DeleteTask/deleteTask';
+import {UPDATE_TASK} from 'mutations/UpdateTask/UpdateTask';
+import {DELETE_TASK} from 'mutations/DeleteTask/DeleteTask';
 
 const useStyles = makeStyles({
   underlined: {
@@ -22,8 +22,8 @@ const Task = ({task}) => {
     updateTask({id: id, done: !done})
   };
 
-  const onDeleteTask = () => deleteTask({id: id});
-  
+  const onDeleteTask = () => deleteTask({id});
+
   return (
     <ListItem 
       key={id} 
@@ -44,10 +44,10 @@ const Task = ({task}) => {
       <ListItemText 
         id={labelId} 
         primary={content} 
-        className={done ? classes.underlined : ''} 
+        className={done ? classes.underlined : null} 
       />
       <ListItemSecondaryAction>
-        <IconButton onClick={onDeleteTask} edge="end" aria-label="comments">
+        <IconButton onClick={onDeleteTask} edge="end" aria-label="delete">
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>

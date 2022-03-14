@@ -8,7 +8,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {TASK_SCHEMA} from './schema';
-import {CREATE_TASK} from 'mutations/CreateTask/createTask';
+import {CREATE_TASK} from 'mutations/CreateTask/CreateTask';
 
 const INITIAL_VALUES = {
   content: '',
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   }
 });
 
-const AddTask = ({projectId}) => {
+const AddTaskButton = ({projectId}) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,15 +36,14 @@ const AddTask = ({projectId}) => {
 
   return (
     <>
-      <Typography 
+      <Button
         onClick={handleOpen} 
-        align="center" 
-        color='textSecondary' 
-        sx={{cursor: "pointer", fontSize: "1.5rem"}}
+        fullWidth
+        size="large"
       >
         + Add Task
-      </Typography>
-      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose} aria-labelledby="customized-dialog-title">
+      </Button>
+      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose}>
         <DialogContent dividers>
           <Container maxWidth="lg">
             <Formik
@@ -91,4 +90,4 @@ const AddTask = ({projectId}) => {
   );
 }
 
-export default AddTask;
+export default AddTaskButton;

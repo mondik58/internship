@@ -10,7 +10,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {PROJECT_SCHEMA} from './schema';
-import {CREATE_LIST} from 'mutations/CreateToDoList/createList';
+import {CREATE_LIST} from 'mutations/CreateList/CreateList';
 
 const useStyles = makeStyles({
   item: {

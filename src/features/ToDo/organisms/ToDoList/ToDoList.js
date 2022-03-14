@@ -2,7 +2,7 @@ import {Card, CardContent, CardHeader, Box} from '@mui/material';
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 
-import AddTask from '../AddTask/AddTask';
+import AddTaskButton from 'features/ToDo/molecules/AddTaskButton';
 import TaskList from 'features/ToDo/molecules/TaskList';
 
 const useStyles = makeStyles({
@@ -48,7 +48,7 @@ const ToDoList = ({list}) => {
           } />
         <CardContent>
           <TaskList tasks={tasks} />
-          <AddTask projectId={id} />
+          <AddTaskButton projectId={id} />
         </CardContent>
       </Card>
     </Box>

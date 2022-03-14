@@ -5,7 +5,8 @@ import {createClient, Provider, dedupExchange, cacheExchange, fetchExchange} fro
 import {authExchange} from '@urql/exchange-auth';
 import {makeOperation} from '@urql/core';
 
-import {API_URL, ROUTES} from 'constants/api';
+import {API_URL} from 'constants/api';
+import {ROUTES} from 'constants/routes';
 import {getToken, deleteToken} from 'utils/cookies';
 import PrivateRoute from 'components/atoms/PrivateRoute';
 import MainTemplate from 'components/templates/MainTemplate';

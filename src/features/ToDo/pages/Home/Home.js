@@ -4,7 +4,7 @@ import {CircularProgress} from '@mui/material';
 
 import ToDoModal from 'features/ToDo/organisms/ToDoModal';
 import ToDoList from 'features/ToDo/organisms/ToDoList';
-import {GET_LISTS} from 'queries/GetLists/getLists';
+import {GET_LISTS} from 'queries/GetLists/GetLists';
 
 const Home = () => {
   const [{data, fetching}] = useQuery({
@@ -32,7 +32,7 @@ const Home = () => {
       >
         {fetching ? <CircularProgress color="secondary" thickness={5}/> 
           : lists?.length ? lists?.map(list => (
-            <ToDoList key={list.createdAt} list={list}/>
+            <ToDoList key={list.createdAt} list={list} />
           )) 
           : (
             <Typography 
