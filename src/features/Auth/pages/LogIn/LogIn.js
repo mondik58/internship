@@ -6,7 +6,7 @@ import {useMutation} from 'urql';
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
-import {ROUTES} from 'constants/api';
+import {ROUTES} from 'constants/routes';
 import {LOGIN} from 'mutations/LogIn/logIn';
 import {LOGIN_SCHEMA} from './schema';
 import {setToken} from 'utils/cookies';
