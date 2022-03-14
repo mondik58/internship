@@ -27,7 +27,6 @@ const Task = ({task}) => {
   return (
     <ListItem 
       key={id} 
-      role={undefined} 
       dense 
       button 
       onClick={handleToggle}
