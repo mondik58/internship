@@ -9,15 +9,15 @@ import {API_URL} from 'constants/api';
 import {ROUTES} from 'constants/routes';
 import {getToken, deleteToken} from 'utils/cookies';
 import PrivateRoute from 'components/atoms/PrivateRoute';
-import MainTemplate from 'components/templates/MainTemplate';
 import SignUp from 'features/Auth/pages/SignUp';
 import Home from 'features/ToDo/pages/Home';
 import LogIn from 'features/Auth/pages/LogIn';
+import ProjectPage from 'features/ToDo/pages/ProjectPage';
 
 import 'styles/normalize.scss';
 
 const App = () => {
-  const {HOME, LOGIN, SIGN_UP} = ROUTES;
+  const {HOME, LOGIN, SIGN_UP, LIST} = ROUTES;
   const navigate = useNavigate(LOGIN);
   const token = getToken();
   const client = useMemo(() => {
@@ -71,17 +71,21 @@ const App = () => {
   
   return (
     <Provider value={client}>
-      <MainTemplate>
-        <Routes>
-          <Route path={HOME} element={
-            <PrivateRoute> 
-              <Home />
-            </PrivateRoute>
-          }/>
-          <Route path={SIGN_UP} element={<SignUp />}/>
-          <Route path={LOGIN} element={<LogIn />}/>
-        </Routes>
-      </MainTemplate>
+      <Routes>
+        <Route path={HOME} element={
+          <PrivateRoute> 
+            <Home />
+          </PrivateRoute>
+        }/>
+        <Route path={LIST} element={
+          <PrivateRoute> 
+            <ProjectPage />
+          </PrivateRoute>
+        }/>
+        <Route path={SIGN_UP} element={<SignUp />}/>
+        <Route path={LOGIN} element={<LogIn />}/>
+        <Route path='*' element={<SignUp/>} />
+      </Routes>
     </Provider>
   )
 }
