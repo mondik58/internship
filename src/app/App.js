@@ -71,23 +71,21 @@ const App = () => {
   
   return (
     <Provider value={client}>
-      <>
-        <Routes>
-          <Route path={HOME} element={
-            <PrivateRoute> 
-              <Home />
-            </PrivateRoute>
-          }/>
-          <Route path={LIST} element={
-            <PrivateRoute> 
-              <ProjectPage />
-            </PrivateRoute>
-          }/>
-          <Route path={SIGN_UP} element={<SignUp />}/>
-          <Route path={LOGIN} element={<LogIn />}/>
-          <Route path='*' element={<SignUp/>} />
-        </Routes>
-      </>
+      <Routes>
+        <Route path={HOME} element={
+          <PrivateRoute> 
+            <Home />
+          </PrivateRoute>
+        }/>
+        <Route path={LIST} element={
+          <PrivateRoute> 
+            <ProjectPage />
+          </PrivateRoute>
+        }/>
+        <Route path={SIGN_UP} element={<SignUp />}/>
+        <Route path={LOGIN} element={<LogIn />}/>
+        <Route path='*' element={<SignUp/>} />
+      </Routes>
     </Provider>
   )
 }

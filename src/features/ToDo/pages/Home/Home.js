@@ -32,8 +32,8 @@ const Home = () => {
           alignItems="center"
           direction="column"
         >
-          {fetching ? <CircularProgress color="secondary" thickness={5}/> 
-            : lists?.length ? lists?.map(list => (
+          {fetching ? <CircularProgress color="secondary" thickness={5} /> 
+            : lists?.length ? lists.map(list => (
               <ToDoList key={list.createdAt} list={list} />
             )) 
             : (
