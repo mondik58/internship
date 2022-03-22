@@ -6,6 +6,6 @@ export const PROJECT_SCHEMA = Yup.object().shape({
     .min(MIN_TITLE_LENGTH, `Title can't be less than ${MIN_TITLE_LENGTH} characters`)
     .required('Enter title'),
   description: Yup.string()
-    .min(MIN_TITLE_LENGTH, `Title can't be less than ${MIN_TITLE_LENGTH} characters`),
+    .min(MIN_TITLE_LENGTH, `Description can't be less than ${MIN_TITLE_LENGTH} characters`),
   deadline: Yup.date()
 });
