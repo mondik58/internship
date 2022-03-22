@@ -42,7 +42,7 @@ const ToDoModal = () => {
     <>
       <SpeedDial 
         onClick={handleOpen} 
-        ariaLabel="modal"
+        ariaLabel="Open todo list creation modal"
         icon={<SpeedDialIcon />}
         sx={{position: 'absolute', bottom: 10, right: 10}}
         FabProps={{
