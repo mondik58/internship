@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {server} from 'utils/tests/server';
 import {signUpError} from "utils/tests/requestHandlers";
 import renderComponent from 'utils/tests/renderComponent';
-import {ROUTES} from 'constants/api';
+import {ROUTES} from 'constants/routes';
 import SignUp from '..';
 
 describe('SignUp', () => {

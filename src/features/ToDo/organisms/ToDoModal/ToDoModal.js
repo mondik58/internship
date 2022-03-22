@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const INITIAL_VALUES = {
   title: '',
   description: '',
-  deadline: '',
+  deadline: new Date(),
 }
 
 const ToDoModal = () => {
@@ -30,8 +30,7 @@ const ToDoModal = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [result, createProject] = useMutation(CREATE_LIST);
-  const {fetching, error} = result;
+  const [{fetching}, createProject] = useMutation(CREATE_LIST);
   
   const onSubmit = async (values, {setSubmitting}) => {
     const result = await createProject(values);
@@ -43,11 +42,20 @@ const ToDoModal = () => {
     <>
       <SpeedDial 
         onClick={handleOpen} 
-        ariaLabel="SpeedDial example"
+        ariaLabel="modal"
         icon={<SpeedDialIcon />}
         sx={{position: 'absolute', bottom: 10, right: 10}}
+        FabProps={{
+          'data-testid': 'open-modal'
+        }}
       />
-      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose} aria-labelledby="customized-dialog-title">
+      <Dialog 
+        maxWidth="lg" 
+        fullWidth open={open} 
+        onClose={handleClose} 
+        aria-labelledby="customized-dialog-title"
+        data-testid="create-list"
+      >
         <DialogContent dividers>
           <Container maxWidth="lg">
             <Formik
@@ -93,18 +101,13 @@ const ToDoModal = () => {
                           direction="row" 
                         >
                           <Grid item>
-                            <Button fullWidth variant="outlined" onClick={handleClose}>NO, THANKS</Button>
+                            <Button data-tesid="close" fullWidth variant="outlined" onClick={handleClose}>NO, THANKS</Button>
                           </Grid>
                           <Grid item>
                             <SubmitButton variant="outlined" loading={fetching}>CREATE LIST</SubmitButton>
                           </Grid>
                         </Grid>
                       </DialogActions>
-                    {error && 
-                      <Grid sx={{width: "100%", marginTop: "30px"}} item xs={12}>
-                        <Alert severity="error">{error.message}</Alert>
-                      </Grid>
-                    }
                   </Grid>
                 </Form>
               )}

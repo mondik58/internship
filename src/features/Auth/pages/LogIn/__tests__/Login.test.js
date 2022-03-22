@@ -7,11 +7,12 @@ import {server} from 'utils/tests/server';
 import {signInError} from "utils/tests/requestHandlers";
 import {setToken} from 'utils/cookies';
 import renderComponent from 'utils/tests/renderComponent';
-import {ROUTES} from 'constants/api';
+import {ROUTES} from 'constants/routes';
 import Login from '..';
 
 jest.mock('utils/cookies', () => ({
-  setToken: jest.fn()
+  setToken: jest.fn(),
+  getToken: jest.fn()
 }));
 
 describe('Login', () => {
