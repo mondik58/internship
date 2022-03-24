@@ -31,3 +31,9 @@ export const createList = {
     title: 'Test title'
   }
 }
+
+export const createTask = {
+  createTask: {
+    content: 'Text content'
+  }
+}

@@ -40,10 +40,17 @@ const AddTaskButton = ({projectId}) => {
         onClick={handleOpen} 
         fullWidth
         size="large"
+        data-testid="add-task"
       >
         + Add Task
       </Button>
-      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose}>
+      <Dialog 
+        maxWidth="lg" 
+        fullWidth 
+        open={open} 
+        onClose={handleClose}
+        data-testid="create-task"
+      >
         <DialogContent dividers>
           <Container maxWidth="lg">
             <Formik
