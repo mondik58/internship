@@ -37,3 +37,30 @@ export const createTask = {
     content: 'Text content'
   }
 }
+
+export const updateList = {
+  updateProject: {
+    id: 1,
+  }
+}
+
+export const getTask = {
+  project: [{
+    description: 'test description',
+    id: 1,
+    title: 'test title'
+  }]
+}
+
+export const getLists = {
+  projects: [{
+    createdAt: "2022-02-16 13:16:00 UTC",
+    id: 2,
+    title: 'test title',
+    public: true,
+  }]
+}
+
+export const getEmptyLists = {
+  projects: []
+}
