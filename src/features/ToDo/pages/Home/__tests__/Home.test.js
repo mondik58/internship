@@ -1,14 +1,14 @@
-import {screen, waitFor} from "@testing-library/react";
+import {screen, waitFor} from '@testing-library/react';
 import renderComponent from 'utils/tests/renderComponent';
 import {server} from "utils/tests/server";
-import {emptyDataLists} from "utils/tests/requestHandlers";
+import {getListsEmpty} from 'utils/tests/requestHandlers';
 import Home from '..';
 
 describe('Home', () => {
   const render = () => renderComponent(<Home />);
 
   describe('with data', () => {
-    it('should renders lists', async () => {
+    it('should render lists', async () => {
       render();
 
       await waitFor(() => {
@@ -18,8 +18,8 @@ describe('Home', () => {
   });
 
   describe('with empty data', () => {
-    it('should renders correct text', async () => {
-      server.use(emptyDataLists);
+    it('should render correct text', async () => {
+      server.use(getListsEmpty);
       render();
 
       await waitFor(() => {

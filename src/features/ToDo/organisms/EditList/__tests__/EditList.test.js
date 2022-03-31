@@ -8,7 +8,7 @@ describe('EditList', () => {
   const render = () => renderComponent(<EditList />);
 
   describe('with valid data', () => {
-    it('update inputs', async () => {
+    it('close modal', async () => {
       render();
       
       userEvent.click(screen.getByTestId('open-edit-list'));

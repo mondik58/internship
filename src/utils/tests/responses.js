@@ -61,6 +61,6 @@ export const getLists = {
   }]
 }
 
-export const getEmptyLists = {
+export const getListsEmpty = {
   projects: []
 }

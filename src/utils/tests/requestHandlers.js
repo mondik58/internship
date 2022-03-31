@@ -51,8 +51,8 @@ export const signInError = graphql.mutation('SignInUser', (req,res, ctx) => {
   )
 });
 
-export const emptyDataLists = graphql.query('GetLists', (req, res, ctx) => {
+export const getListsEmpty = graphql.query('GetLists', (req, res, ctx) => {
   return res(
-    ctx.data(response.getEmptyLists)
+    ctx.data(response.getListsEmpty)
   )
 });

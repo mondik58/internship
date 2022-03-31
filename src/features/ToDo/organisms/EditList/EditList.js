@@ -62,7 +62,6 @@ const EditList = () => {
         fullWidth 
         open={open} 
         onClose={handleClose} 
-        aria-labelledby="customized-dialog-title"
         data-testid="update-list"
       >
         <DialogContent dividers>
