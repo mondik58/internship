@@ -8,7 +8,7 @@ describe('ToDoList', () => {
     id: 1,
   }
   const render = () => renderComponent(<ToDoList list={list} />);
-  it('renders correct title', () => {
+  it('render correct title', () => {
     render();
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
   });
