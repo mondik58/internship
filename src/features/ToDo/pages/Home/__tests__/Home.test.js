@@ -4,7 +4,6 @@ import {server} from "utils/tests/server";
 import {emptyDataLists} from "utils/tests/requestHandlers";
 import Home from '..';
 
-
 describe('Home', () => {
   const render = () => renderComponent(<Home />);
 
