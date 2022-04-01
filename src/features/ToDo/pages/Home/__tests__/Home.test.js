@@ -1,6 +1,6 @@
 import {screen, waitFor} from '@testing-library/react';
 import renderComponent from 'utils/tests/renderComponent';
-import {server} from "utils/tests/server";
+import {server} from 'utils/tests/server';
 import {getListsEmpty} from 'utils/tests/requestHandlers';
 import Home from '..';
 
@@ -23,7 +23,7 @@ describe('Home', () => {
       render();
 
       await waitFor(() => {
-        expect(screen.getByText("You don't have any lists yet")).toBeInTheDocument();
+        expect(screen.getByText('You don\'t have any lists yet')).toBeInTheDocument();
       })
     });
   });
