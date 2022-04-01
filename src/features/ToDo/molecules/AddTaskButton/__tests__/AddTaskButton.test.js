@@ -1,4 +1,4 @@
-import {screen, waitFor} from "@testing-library/react";
+import {screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import renderComponent from 'utils/tests/renderComponent';
@@ -31,7 +31,7 @@ describe('AddTaskButton', () => {
         userEvent.click(screen.getByTestId('submit'));
 
         await waitFor(() => {
-          expect(screen.getByText("Description can't be less than 5 characters")).toBeInTheDocument();
+          expect(screen.getByText('Description can\'t be less than 5 characters')).toBeInTheDocument();
         })
       });
     });

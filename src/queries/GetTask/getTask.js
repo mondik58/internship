@@ -1,7 +1,7 @@
 import {gql} from 'urql';
 
 export const GET_TASK = gql`
-  query project($id: ID!){
+  query GetTask($id: ID!){
     project(id: $id) {
       createdAt
       deadline

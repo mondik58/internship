@@ -27,18 +27,18 @@ const EditList = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [result, updateProject] = useMutation(UPDATE_LIST);
-  const {error} = result;
+  const {fetching, error} = result;
 
-  const [{data, fetching}] = useQuery({
+  const [{data}] = useQuery({
     query: GET_TASK,
     variables: {id}
   });
 
-  const project = !fetching && data?.project;
+  const project = data?.project;
 
   const INITIAL_VALUES = {
-    title: project?.title,
-    description: project?.description,
+    title: project?.title || '',
+    description: project?.description  || '',
   }
   
   const onSubmit = async (values, {setSubmitting}) => {
@@ -53,10 +53,17 @@ const EditList = () => {
         onClick={handleOpen}
         color="inherit" 
         size="medium"
+        data-testid="open-edit-list"
       >
         <Edit />
       </IconButton>
-      <Dialog maxWidth="lg" fullWidth open={open} onClose={handleClose} aria-labelledby="customized-dialog-title">
+      <Dialog 
+        maxWidth="lg" 
+        fullWidth 
+        open={open} 
+        onClose={handleClose} 
+        data-testid="update-list"
+      >
         <DialogContent dividers>
           <Container maxWidth="lg">
             <Formik

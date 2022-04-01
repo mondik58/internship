@@ -42,6 +42,7 @@ const ToDoList = ({list}) => {
             <Link 
               className={classes.link} 
               to={`/list/${id}`}
+              data-testid="list-link"
             >
               {title}
             </Link>

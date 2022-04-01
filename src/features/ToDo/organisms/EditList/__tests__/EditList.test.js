@@ -2,22 +2,22 @@ import {screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import renderComponent from 'utils/tests/renderComponent';
-import ToDoModal from '..';
+import EditList from '..';
 
-describe('ToDoModal', () => {
-  const render = () => renderComponent(<ToDoModal />);
+describe('EditList', () => {
+  const render = () => renderComponent(<EditList />);
 
   describe('with valid data', () => {
-    it('close modal with correct params', async () => {
+    it('closes modal', async () => {
       render();
-
-      userEvent.click(screen.getByTestId('open-modal'));
-      userEvent.type(screen.getByTestId('title'), 'test title');
-      userEvent.type(screen.getByTestId('description'), 'test description');
+      
+      userEvent.click(screen.getByTestId('open-edit-list'));
+      userEvent.type(screen.getByTestId('title'), 'tests title');
+      userEvent.type(screen.getByTestId('description'), 'tests description');
       userEvent.click(screen.getByTestId('submit'));
 
       await waitFor(() => {
-        expect(screen.queryByTestId('create-list')).toBeNull();
+        expect(screen.queryByTestId('update-list')).toBeNull();
       }, {timeout: 3000})
     });
   })
@@ -27,13 +27,13 @@ describe('ToDoModal', () => {
       it('renders correct errors', async () => {
         render();
   
-        userEvent.click(screen.getByTestId('open-modal'));
+        userEvent.click(screen.getByTestId('open-edit-list'));
         userEvent.type(screen.getByTestId('title'), 'test');
         userEvent.click(screen.getByTestId('submit'));
   
         await waitFor(() => {
           expect(screen.getByText('Title can\'t be less than 5 characters')).toBeInTheDocument();
-        })
+        });
       });
     });
 
@@ -41,9 +41,10 @@ describe('ToDoModal', () => {
       it('renders correct errors', async () => {
         render();
   
-        userEvent.click(screen.getByTestId('open-modal'));
+        userEvent.click(screen.getByTestId('open-edit-list'));
+        userEvent.type(screen.getByTestId('title'), '');
         userEvent.click(screen.getByTestId('submit'));
-  
+
         await waitFor(() => {
           expect(screen.getByText('Enter title')).toBeInTheDocument();
         })
@@ -54,13 +55,13 @@ describe('ToDoModal', () => {
       it('renders correct errors', async () => {
         render();
   
-        userEvent.click(screen.getByTestId('open-modal'));
+        userEvent.click(screen.getByTestId('open-edit-list'));
         userEvent.type(screen.getByTestId('description'), 'test');
         userEvent.click(screen.getByTestId('submit'));
   
         await waitFor(() => {
           expect(screen.getByText('Description can\'t be less than 5 characters')).toBeInTheDocument();
-        })
+        });
       });
     });
   })

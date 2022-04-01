@@ -1,9 +1,9 @@
-import {screen, waitFor} from "@testing-library/react";
+import {screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 import {server} from 'utils/tests/server';
-import {signUpError} from "utils/tests/requestHandlers";
+import {signUpError} from 'utils/tests/requestHandlers';
 import renderComponent from 'utils/tests/renderComponent';
 import {ROUTES} from 'constants/routes';
 import SignUp from '..';
