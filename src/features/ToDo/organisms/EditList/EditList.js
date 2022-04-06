@@ -11,7 +11,7 @@ import SubmitButton from 'components/atoms/SubmitButton';
 import {GET_TASK} from 'queries/GetTask/GetTask';
 
 import {EDIT_SCHEMA} from './schema';
-import {UPDATE_LIST} from 'mutations/UpdateList/UpdateList';
+import {UPDATE_LIST} from 'mutations/List/UpdateList/UpdateList';
 
 const useStyles = makeStyles({
   item: {

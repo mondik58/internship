@@ -4,7 +4,7 @@ import {Button} from '@mui/material';
 import {useMutation} from 'urql';
 import {Delete} from '@material-ui/icons';
 
-import {DELETE_PROJECT} from 'mutations/DeleteProject/DeleteProject';
+import {DELETE_PROJECT} from 'mutations/List/DeleteProject/DeleteProject';
 import {ROUTES} from 'constants/routes';
 
 const DeleteProjectButton = ({id}) => {
@@ -23,6 +23,7 @@ const DeleteProjectButton = ({id}) => {
       color="error"
       onClick={onDelete} 
       disabled={fetching}
+      data-testid="delete-project"
     >
       <Delete fontSize="large" /> DELETE
     </Button>

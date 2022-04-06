@@ -17,7 +17,6 @@ const useStyles = makeStyles({
   },
 });
 
-
 const ProjectPage = () => {
   const classes = useStyles()
   const {id} = useParams();
