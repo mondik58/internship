@@ -4,8 +4,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from '@material-ui/core/styles';
 import {useMutation} from 'urql';
 
-import {UPDATE_TASK} from 'mutations/Task/UpdateTask/UpdateTask';
-import {DELETE_TASK} from 'mutations/Task/DeleteTask/DeleteTask';
+import {UPDATE_TASK} from 'mutations/Task/UpdateTask';
+import {DELETE_TASK} from 'mutations/Task/DeleteTask';
 
 const useStyles = makeStyles({
   underlined: {

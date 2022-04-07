@@ -23,7 +23,7 @@ describe('ProjectPage', () => {
     });
   });
 
-  describe('when user click on go back button', () => {
+  describe('when user clicks on go back button', () => {
     it('redirects to home page', async () => {
       useNavigate.mockReturnValue(navigate);
       render();
@@ -40,15 +40,13 @@ describe('ProjectPage', () => {
     });
   })
 
-  describe('when render task component', () => {
-    describe('with task content', () => {
-      it('should render task content', async () => {
-        render();
-  
-        await waitFor(() => {
-          expect(screen.getByText(/test content/i)).toBeInTheDocument();
-        })
-      });
+  describe('with task content', () => {
+    it('should render task content', async () => {
+      render();
+
+      await waitFor(() => {
+        expect(screen.getByText(/test content/i)).toBeInTheDocument();
+      })
     });
   });
 });

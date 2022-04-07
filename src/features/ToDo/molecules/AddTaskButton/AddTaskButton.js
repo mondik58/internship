@@ -8,7 +8,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {TASK_SCHEMA} from './schema';
-import {CREATE_TASK} from 'mutations/Task/CreateTask/CreateTask';
+import {CREATE_TASK} from 'mutations/Task/CreateTask';
 
 const INITIAL_VALUES = {
   content: '',

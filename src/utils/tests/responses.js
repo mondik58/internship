@@ -63,7 +63,7 @@ export const getTask = {
 export const getLists = {
   projects: [{
     createdAt: "2022-02-16 13:16:00 UTC",
-    deadline: '',
+    deadline: '2022-04-07T08:32:49.471Z',
     id: 1,
     public: true,
     tasks: [
@@ -83,7 +83,7 @@ export const getListsEmpty = {
   projects: []
 }
 
-export const deleteProject = {
+export const deleteList = {
   deleteProject: {
     id: 1
   }

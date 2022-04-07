@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {ROUTES} from 'constants/routes';
-import {CREATE_USER} from 'mutations/User/SignUp/signUp';
+import {CREATE_USER} from 'mutations/User/signUp';
 import {SIGNUP_SCHEMA} from './schema';
 import MainTemplate from 'components/templates/MainTemplate';
 
