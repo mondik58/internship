@@ -51,7 +51,7 @@ const Task = ({task}) => {
         <IconButton 
           onClick={onDeleteTask} 
           edge="end" 
-          aria-label="delete"
+          aria-label="Delete the task"
         >
           <DeleteIcon />
         </IconButton>
