@@ -27,4 +27,14 @@ describe('Home', () => {
       })
     });
   });
+
+  describe('with task content', () => {
+    it('should render task content', async () => {
+      render();
+
+      await waitFor(() => {
+        expect(screen.getByText(/test content/i)).toBeInTheDocument();
+      })
+    });
+  });
 });

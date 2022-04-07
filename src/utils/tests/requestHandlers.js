@@ -37,6 +37,21 @@ export const requestHandlers = [
       ctx.data(response.getLists)
     )
   }),
+  graphql.mutation('DeleteList', (req, res, ctx) => {
+    return res(
+      ctx.data(response.deleteList)
+    )
+  }),
+  graphql.mutation('UpdateTask', (req, res, ctx) => {
+    return res(
+      ctx.data(response.updateTask)
+    )
+  }),
+  graphql.mutation('DeleteTask', (req, res, ctx) => {
+    return res(
+      ctx.data(response.deleteTask)
+    )
+  }),
 ]
 
 export const signUpError = graphql.mutation('CreateUser', (req,res, ctx) => {

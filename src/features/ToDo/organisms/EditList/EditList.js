@@ -11,7 +11,7 @@ import SubmitButton from 'components/atoms/SubmitButton';
 import {GET_TASK} from 'queries/GetTask/GetTask';
 
 import {EDIT_SCHEMA} from './schema';
-import {UPDATE_LIST} from 'mutations/UpdateList/UpdateList';
+import {UPDATE_LIST} from 'mutations/List/UpdateList';
 
 const useStyles = makeStyles({
   item: {
@@ -27,7 +27,7 @@ const EditList = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [result, updateProject] = useMutation(UPDATE_LIST);
-  const {fetching, error} = result;
+  const {fetching} = result;
 
   const [{data}] = useQuery({
     query: GET_TASK,
@@ -105,11 +105,6 @@ const EditList = () => {
                         </Grid>
                       </Grid>
                     </DialogActions>
-                    {error && 
-                      <Grid sx={{width: "100%", marginTop: "30px"}} item xs={12}>
-                        <Alert severity="error">{error.message}</Alert>
-                      </Grid>
-                    }
                   </Grid>
                 </Form>
               )}

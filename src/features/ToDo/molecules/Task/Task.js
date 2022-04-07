@@ -1,9 +1,11 @@
+import {memo} from 'react';
 import {ListItem, ListItemIcon, ListItemText, Checkbox, IconButton, ListItemSecondaryAction} from '@mui/material';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {makeStyles} from '@material-ui/core/styles';
 import {useMutation} from 'urql';
-import {UPDATE_TASK} from 'mutations/UpdateTask/UpdateTask';
-import {DELETE_TASK} from 'mutations/DeleteTask/DeleteTask';
+
+import {UPDATE_TASK} from 'mutations/Task/UpdateTask';
+import {DELETE_TASK} from 'mutations/Task/DeleteTask';
 
 const useStyles = makeStyles({
   underlined: {
@@ -37,7 +39,7 @@ const Task = ({task}) => {
           checked={done}
           tabIndex={-1}
           disableRipple
-          inputProps={{'aria-labelledby': labelId}}
+          inputProps={{"aria-labelledby": labelId}}
         />
       </ListItemIcon>
       <ListItemText 
@@ -46,7 +48,11 @@ const Task = ({task}) => {
         className={done ? classes.underlined : null} 
       />
       <ListItemSecondaryAction>
-        <IconButton onClick={onDeleteTask} edge="end" aria-label="delete">
+        <IconButton 
+          onClick={onDeleteTask} 
+          edge="end" 
+          aria-label="Delete the task"
+        >
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>
@@ -54,4 +60,4 @@ const Task = ({task}) => {
   );
 }
 
-export default Task;
+export default memo(Task);

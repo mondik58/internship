@@ -22,7 +22,11 @@ const ProjectHeader = ({project}) => {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-            <Button color="inherit" onClick={goBack}>
+            <Button 
+              color="inherit" 
+              onClick={goBack}
+              data-testid="back-button"
+            >
               <ArrowBack fontSize="medium" className={classes.margin} />
               {title}
             </Button> 

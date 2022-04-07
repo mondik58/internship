@@ -34,7 +34,7 @@ export const createList = {
 
 export const createTask = {
   createTask: {
-    content: 'Text content'
+    content: 'Text content',
   }
 }
 
@@ -45,22 +45,58 @@ export const updateList = {
 }
 
 export const getTask = {
-  project: [{
+  project: {
     description: 'test description',
     id: 1,
-    title: 'test title'
-  }]
+    title: 'test title',
+    tasks: [
+      {
+        content: 'test content',
+        done: false,
+        id: 54,
+        projectId: 1
+      }
+    ]
+  }
 }
 
 export const getLists = {
   projects: [{
     createdAt: "2022-02-16 13:16:00 UTC",
-    id: 2,
-    title: 'test title',
+    deadline: '2022-04-07T08:32:49.471Z',
+    id: 1,
     public: true,
+    tasks: [
+      {
+        content: 'test content',
+        createdAt: '2022-02-17 13:16:00 UTC',
+        done: false,
+        id: 54,
+        projectId: 1
+      }
+    ],
+    title: 'test title',
   }]
 }
 
 export const getListsEmpty = {
   projects: []
+}
+
+export const deleteList = {
+  deleteProject: {
+    id: 1
+  }
+}
+
+export const updateTask = {
+  updateTask: {
+    done: true
+  }
+}
+
+export const deleteTask = {
+  deleteTask: {
+    id: 54,
+  }
 }
