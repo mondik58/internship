@@ -2,12 +2,12 @@ import {screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {useNavigate} from 'react-router-dom';
 
-import {deleteToken, getToken} from 'utils/cookies/cookies';
+import {deleteToken, getToken} from 'utils/cookies';
 import renderComponent from 'utils/tests/renderComponent';
 import {ROUTES} from 'constants/routes';
 import Header from '..';
 
-jest.mock('utils/cookies/cookies', () => ({
+jest.mock('utils/cookies', () => ({
   getToken: jest.fn(),
   deleteToken: jest.fn()
 }));

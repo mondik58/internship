@@ -9,7 +9,7 @@ import SubmitButton from 'components/atoms/SubmitButton';
 import {ROUTES} from 'constants/routes';
 import {LOGIN} from 'mutations/User/LogIn';
 import {LOGIN_SCHEMA} from './validationSchema';
-import {setToken} from 'utils/cookies/cookies';
+import {setToken} from 'utils/cookies';
 import MainTemplate from 'components/templates/MainTemplate';
 
 const INITIAL_VALUES = {

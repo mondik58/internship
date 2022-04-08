@@ -1,7 +1,7 @@
 import {AppBar, Box, Toolbar, Button, Typography} from '@mui/material';
 import {Link, useNavigate} from 'react-router-dom';
 import {ROUTES} from 'constants/routes';
-import {getToken, deleteToken} from 'utils/cookies/cookies';
+import {getToken, deleteToken} from 'utils/cookies';
 
 const Header = () => {
   const {LOGIN, SIGN_UP} = ROUTES;

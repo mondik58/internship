@@ -7,7 +7,7 @@ import {makeOperation} from '@urql/core';
 
 import {API_URL} from 'constants/api';
 import {ROUTES} from 'constants/routes';
-import {getToken, deleteToken} from 'utils/cookies/cookies';
+import {getToken, deleteToken} from 'utils/cookies';
 import PrivateRoute from 'components/atoms/PrivateRoute';
 import SignUp from 'features/Auth/pages/SignUp';
 import Home from 'features/ToDo/pages/Home';

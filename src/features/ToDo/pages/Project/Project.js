@@ -28,10 +28,7 @@ const ProjectPage = () => {
 
   return (
     <MainTemplate header={<ProjectHeader project={project} />}>
-      {(project.description?.length !== 0) ? 
-        <DescriptionCard project={project} classes={classes}/> 
-        : null
-      }
+      {project.description && <DescriptionCard project={project} classes={classes}/>}
       <TaskCard project={project} classes={classes}/>
       <Box sx={{width: '100%', mt: 4}}>
         <DeleteProjectButton id={project.id} />

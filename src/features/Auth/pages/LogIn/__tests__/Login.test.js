@@ -4,12 +4,12 @@ import {useNavigate} from 'react-router-dom';
 
 import {server} from 'utils/tests/server';
 import {signInError} from 'utils/tests/requestHandlers';
-import {setToken} from 'utils/cookies/cookies';
+import {setToken} from 'utils/cookies';
 import renderComponent from 'utils/tests/renderComponent';
 import {ROUTES} from 'constants/routes';
 import Login from '..';
 
-jest.mock('utils/cookies/cookies', () => ({
+jest.mock('utils/cookies', () => ({
   setToken: jest.fn(),
   getToken: jest.fn()
 }));
