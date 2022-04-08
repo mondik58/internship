@@ -7,9 +7,6 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/pickers": "^3.3.10",
     "@mui/material": "^5.2.2",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "@urql/exchange-auth": "^0.1.7",
     "date-fns": "^2.27.0",
     "formik": "^2.2.9",
@@ -59,6 +56,9 @@
     "msw": "^0.36.7",
     "sass": "^1.45.2",
     "sass-loader": "^12.4.0",
-    "webpack": "^5.65.0"
+    "webpack": "^5.65.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10"
   }
 }

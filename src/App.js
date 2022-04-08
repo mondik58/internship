@@ -7,12 +7,12 @@ import {makeOperation} from '@urql/core';
 
 import {API_URL} from 'constants/api';
 import {ROUTES} from 'constants/routes';
-import {getToken, deleteToken} from 'utils/cookies';
+import {getToken, deleteToken} from 'utils/cookies/cookies';
 import PrivateRoute from 'components/atoms/PrivateRoute';
 import SignUp from 'features/Auth/pages/SignUp';
 import Home from 'features/ToDo/pages/Home';
 import LogIn from 'features/Auth/pages/LogIn';
-import ProjectPage from 'features/ToDo/pages/ProjectPage';
+import Project from 'features/ToDo/pages/Project';
 
 import 'styles/normalize.scss';
 
@@ -67,7 +67,7 @@ const App = () => {
         fetchExchange,
       ],
     })
-  }, [token]);
+  }, [token, navigate, LOGIN]);
   
   return (
     <Provider value={client}>
@@ -79,7 +79,7 @@ const App = () => {
         }/>
         <Route path={LIST} element={
           <PrivateRoute> 
-            <ProjectPage />
+            <Project />
           </PrivateRoute>
         }/>
         <Route path={SIGN_UP} element={<SignUp />}/>

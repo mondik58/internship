@@ -3,10 +3,10 @@ import userEvent from '@testing-library/user-event';
 import {useNavigate} from 'react-router-dom';
 
 import renderComponent from 'utils/tests/renderComponent';
-import ProjectPage from '..';
+import Project from '..';
 
-describe('ProjectPage', () => {
-  const render = () => renderComponent(<ProjectPage />);
+describe('Project', () => {
+  const render = () => renderComponent(<Project />);
   const navigate = jest.fn();
 
   describe('with data', () => {

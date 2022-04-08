@@ -7,8 +7,8 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {ROUTES} from 'constants/routes';
-import {CREATE_USER} from 'mutations/User/signUp';
-import {SIGNUP_SCHEMA} from './schema';
+import {CREATE_USER} from 'mutations/User/SignUp';
+import {SIGNUP_SCHEMA} from './validationSchema';
 import MainTemplate from 'components/templates/MainTemplate';
 
 const INITIAL_VALUES = {

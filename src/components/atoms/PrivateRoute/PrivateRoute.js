@@ -1,5 +1,5 @@
 import {Navigate} from 'react-router-dom';
-import {getToken} from 'utils/cookies';
+import {getToken} from 'utils/cookies/cookies';
 import {ROUTES} from 'constants/routes';
 
 const PrivateRoute = ({children}) => {

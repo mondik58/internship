@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Grid, Container, Dialog, DialogActions, DialogContent, Button, Typography} from '@mui/material';
+import {Grid, Container, Dialog, DialogActions, DialogContent, Button} from '@mui/material';
 import {makeStyles} from '@material-ui/core/styles';
 import {Formik, Form} from 'formik';
 import {useMutation} from 'urql';
@@ -7,7 +7,7 @@ import {useMutation} from 'urql';
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
-import {TASK_SCHEMA} from './schema';
+import {TASK_SCHEMA} from './validationSchema';
 import {CREATE_TASK} from 'mutations/Task/CreateTask';
 
 const INITIAL_VALUES = {
