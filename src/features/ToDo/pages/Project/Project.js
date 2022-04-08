@@ -8,7 +8,7 @@ import ProjectHeader from 'features/ToDo/organisms/ProjectHeader';
 import {GET_TASK} from 'queries/Task/GetTask';
 import DeleteProjectButton from 'features/ToDo/atoms/DeleteProjectButton';
 import DescriptionCard from 'features/ToDo/organisms/DescriptionCard';
-import TaskCard from 'features/ToDo/organisms/TaskCard';
+import TasksCard from 'features/ToDo/organisms/TasksCard';
 
 const useStyles = makeStyles({
   root: {
@@ -29,7 +29,7 @@ const ProjectPage = () => {
   return (
     <MainTemplate header={<ProjectHeader project={project} />}>
       {project.description && <DescriptionCard project={project} classes={classes}/>}
-      <TaskCard project={project} classes={classes}/>
+      <TasksCard project={project} classes={classes}/>
       <Box sx={{width: '100%', mt: 4}}>
         <DeleteProjectButton id={project.id} />
       </Box>
