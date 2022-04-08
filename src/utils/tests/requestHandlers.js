@@ -1,5 +1,5 @@
 import {graphql} from 'msw';
-import * as response from './responses';
+import * as response from 'constants/responses';
 
 export const requestHandlers = [
   graphql.mutation('CreateUser', (req, res, ctx) => {

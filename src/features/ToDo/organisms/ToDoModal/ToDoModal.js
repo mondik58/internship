@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Grid, Container, Alert, Dialog, DialogActions, DialogContent, SpeedDial, SpeedDialIcon, Button} from '@mui/material';
+import {Grid, Container, Dialog, DialogActions, DialogContent, SpeedDial, SpeedDialIcon, Button} from '@mui/material';
 import {makeStyles} from '@material-ui/core/styles';
 import {Formik, Form} from 'formik';
 import {useMutation} from 'urql';
@@ -9,7 +9,7 @@ import {MuiPickersUtilsProvider, DateTimePicker} from "@material-ui/pickers";
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
-import {PROJECT_SCHEMA} from './schema';
+import {PROJECT_SCHEMA} from './validationSchema';
 import {CREATE_LIST} from 'mutations/List/CreateList';
 
 const useStyles = makeStyles({

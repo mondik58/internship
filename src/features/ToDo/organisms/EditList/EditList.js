@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Grid, Container, Alert, Dialog, DialogActions, DialogContent, Button, IconButton} from '@mui/material';
+import {Grid, Container, Dialog, DialogActions, DialogContent, Button, IconButton} from '@mui/material';
 import {makeStyles} from '@material-ui/core/styles';
 import {Formik, Form} from 'formik';
 import {useMutation, useQuery} from 'urql';
@@ -8,9 +8,9 @@ import {useParams} from 'react-router-dom';
 
 import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
-import {GET_TASK} from 'queries/GetTask/GetTask';
+import {GET_TASK} from 'queries/Task/GetTask';
 
-import {EDIT_SCHEMA} from './schema';
+import {EDIT_SCHEMA} from './validationSchema';
 import {UPDATE_LIST} from 'mutations/List/UpdateList';
 
 const useStyles = makeStyles({

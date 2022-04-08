@@ -4,7 +4,7 @@ import {CircularProgress} from '@mui/material';
 
 import ToDoModal from 'features/ToDo/organisms/ToDoModal';
 import ToDoList from 'features/ToDo/organisms/ToDoList';
-import {GET_LISTS} from 'queries/GetLists/GetLists';
+import {GET_LISTS} from 'queries/List/GetLists';
 import MainTemplate  from 'components/templates/MainTemplate';
 
 const Home = () => {

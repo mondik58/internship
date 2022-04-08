@@ -7,8 +7,8 @@ import Input from 'components/atoms/Input';
 import SubmitButton from 'components/atoms/SubmitButton';
 
 import {ROUTES} from 'constants/routes';
-import {LOGIN} from 'mutations/User/logIn';
-import {LOGIN_SCHEMA} from './schema';
+import {LOGIN} from 'mutations/User/LogIn';
+import {LOGIN_SCHEMA} from './validationSchema';
 import {setToken} from 'utils/cookies';
 import MainTemplate from 'components/templates/MainTemplate';
 
